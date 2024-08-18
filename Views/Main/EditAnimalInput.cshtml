@@ -1,0 +1,27 @@
+﻿@model _1907FirstWebAppAtempt.ViewModel.AnimalViewModel
+
+@{
+    ViewBag.Title = "EditAnimalInput";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EditAnimalInput</title>
+</head>
+<body>
+
+
+    <form enctype="multipart/form-data" asp-action="EditAnimal" method="post">
+
+        <partial name="InputAnimalDetails" for="@Model" />
+        <br /><br />
+
+        <input type="submit" value="Edit Here" />
+    </form>
+    
+   
+</body>
+</html>

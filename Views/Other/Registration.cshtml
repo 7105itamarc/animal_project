@@ -1,0 +1,57 @@
+﻿@model _1907FirstWebAppAtempt.Models.MyUser
+@{
+    ViewBag.Title = "Registration";
+    // Layout = "~/Views/Shared/_Layout.cshtml";  // is not needed couse of the view start file
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registration</title>
+</head>
+<body>
+
+@* <from asp-action="ShowUserDetails" asp-controller="Main"> </from> *@
+
+    @using(Html.BeginForm("ShowUserDetails", "Main"))
+    {
+    <div class = "inputId">
+            @* using tag Helper *@
+        <label asp-for="UserId"></label> 
+        <input asp-for="UserId"/>
+        <span asp-validation-for="UserId"></span>
+            
+        @*@Html.LabelFor(user => user.UserId)
+        @Html.EditorFor(user => user.UserId)
+        @Html.ValidationMessageFor(user => user.UserId)*@
+    </div>
+        <br />
+    <div class="inputId">
+            @* using html Helper *@
+        @Html.LabelFor(user => user.UserName)
+        @Html.EditorFor(user => user.UserName)
+        @Html.ValidationMessageFor(user => user.UserName)
+    </div>
+        <br />
+    <div class="inputId">
+        @Html.LabelFor(user => user.password)
+        @Html.EditorFor(user => user.password)
+        @Html.ValidationMessageFor(user => user.password)
+
+    </div class="inputId">
+    <br />
+
+    
+    <input type="submit" value="submit form here" />
+    }
+</body>
+</html>
+
+
+@section section1
+{
+   @*  <div>This is section2 content</div> *@
+}
+

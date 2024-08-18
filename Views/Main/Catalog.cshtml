@@ -1,0 +1,74 @@
+﻿@model IEnumerable<_1907FirstWebAppAtempt.Models.Category>
+
+@{
+    ViewBag.Title = "Catalog";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowAnimalsDetails2</title>
+</head>
+<body>
+
+    <select class="form-select" aria-label="Default select example" id="categorySelect">
+        <option value="0" selected>Choose Category</option>
+
+        @foreach(var category in Model)
+        {
+            <option value="@category.CategoryId"> @category.CategoryName </option>
+        }
+    </select>
+
+    <table class="table table-success table-striped">
+        <tr>
+            <th>image</th>
+            <th>Animal</th>
+            <th>Details</th>
+        </tr>
+
+        @{ 
+
+            @if (@ViewBag.category != null)
+            {
+                @foreach (var animal in @ViewBag.category.Animals!)
+                {
+                    <tr>
+                        <td> <img src=@animal.PictureName alt=@animal.Name width="100" height="100"> </td>
+                        <td> @animal.Name </td>
+                        <td> <a asp-action="AnimalDetails" asp-controller="Main" asp-route-id="@animal.AnimalId"> GetDetails </a>  </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                @foreach (var category in Model)
+                {
+                    @foreach (var animal in category.Animals!)
+                    {
+                        <tr>
+                            <td> <img src=@animal.PictureName alt=@animal.Name width="100" height="100"> </td>
+                            <td> @Html.DisplayNameFor(a => animal.Name): @Html.DisplayFor(a => animal.Name) </td>
+                            <td> <a asp-action="AnimalDetails" asp-controller="Main" asp-route-id="@animal.AnimalId"> GetDetails </a>  </td>
+                        </tr>
+                    }
+                }
+            }
+
+        }
+        
+       
+    </table>
+
+
+    <script>
+        document.getElementById('categorySelect').addEventListener('change', function () {
+            var selectedCategoryId = this.value;
+            window.location.href = '/Main/Catalog?CategoryId=' + selectedCategoryId;
+        });
+    </script>
+
+</body>
+</html>

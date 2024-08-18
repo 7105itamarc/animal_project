@@ -1,0 +1,42 @@
+﻿@model _1907FirstWebAppAtempt.Models.MyLoginModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+
+<form asp-action="Login" asp-controller="Account">
+
+    <div class="inputId">
+         <label asp-for="UserName"></label> 
+        <input asp-for="UserName"/>
+        <span asp-validation-for="UserName"></span>
+    </div>
+        <br />
+        <div class="inputId">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+    <br />
+    
+    <input type="submit" value="submit form here" />
+</form>
+
+
+</body>
+</html>
+
+
+@section section1
+{
+   @*  <div>This is section2 content</div> *@
+}
+

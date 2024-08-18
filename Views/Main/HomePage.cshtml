@@ -1,0 +1,38 @@
+﻿@model IEnumerable<_1907FirstWebAppAtempt.Models.Animal>
+
+@{
+    ViewBag.Title = "HomePage";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowAnimalsDetails</title>
+</head>
+<body>
+
+
+    <table class="table table-success table-striped">
+        <tr>
+            <th>image</th>
+            <th>Animal</th>
+            <th>Description</th>
+            <th>Comments Number</th>
+        </tr>
+
+    
+            @foreach (var animal in Model!)
+            {
+                <tr>
+                    <td> <img src=@animal.PictureName alt=@animal.Name width="100" height="100"> </td>
+                    <td> @Html.DisplayNameFor(a => animal.Name): @Html.DisplayFor(a => animal.Name) </td>
+                    <td> @animal.Description</td>
+                    <td> @animal.Comments!.Count()</td>
+                </tr>
+            }
+          
+    </table>
+</body>
+</html>

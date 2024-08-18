@@ -1,0 +1,119 @@
+﻿@model _1907FirstWebAppAtempt.Models.Comment
+
+@{
+    ViewBag.Title = "AnimalDetails";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AnimalDetails</title>
+</head>
+<body>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button id="ChangeBtn" type="button" class="btn btn-outline-success">Change View</button>
+    </div>
+ 
+    <div class="container" id="TxtDetails" >
+        <div class="table-container">
+            <h2>Meet @ViewBag.animal.Name</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>from the @ViewBag.animal.Category!.CategoryName kingdom</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Description:
+                            @ViewBag.animal.Description;
+                        </td>
+                    
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+ 
+
+
+    <table class="table table-success table-striped" id="DetialsTb" style="display:none" >
+        <tr>
+            <th>Name</th>
+            <td> @ViewBag.animal.Name</td>
+        </tr>
+
+        <tr>
+            <th>Age</th>
+            <td> @ViewBag.animal.Age</td>
+        </tr>
+
+        <tr>
+            <th>Description</th>
+            <td> @ViewBag.animal.Description</td>
+        </tr>
+
+        <tr>
+            <th> Category Name</th>
+            <td>  @ViewBag.animal.Category!.CategoryName</td>
+        </tr>
+        
+
+    </table>
+
+
+
+
+    <br />
+
+
+        <table class="table table-success table-striped">
+
+            @foreach (var comment in ViewBag.animal.Comments!)
+            {
+                <tr> <td> @comment.CommentDetails </td> </tr>
+            }
+
+        </table>
+
+
+
+
+        <form asp-action="AddComment" asp-controller="Main" id="CommentForm">
+                <input hidden asp-for="AnimalId" value="@ViewBag.animal.AnimalId" />
+                <input id="CommentInput" asp-for="CommentDetails"/>
+                
+                <input type="submit"  value="add comment" />
+                <span asp-validation-for="CommentDetails"></span>
+        </form>
+
+        <br />
+
+
+    <script>
+        const commentInput = document.getElementById('CommentInput');
+        commentInput.value = "";
+
+      
+
+            $(document).ready(function () {
+                $("#ChangeBtn").click(function () {
+                if ($("#DetialsTb").is(":visible")) {
+                    $("#DetialsTb").hide();  
+                    $("#TxtDetails").show(); 
+                    }
+                else {
+                    $("#DetialsTb").show();  
+                    $("#TxtDetails").hide();  
+                    }
+                });
+            });
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿@model _1907FirstWebAppAtempt.ViewModel.AnimalViewModel
+
+@{
+    ViewBag.Title = "NewAnimalInput";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NewOrEditAnimal</title>
+</head>
+<body>
+    <form id="formNewAnimal" enctype="multipart/form-data" asp-action="CreateNewAnimal" method="post">
+
+        <partial name="InputAnimalDetails" for="@Model" />
+
+        <br /> <br />
+        <label asp-for="@Model.SelectedCategoryId" class="LabelTxt"> Category </label>
+        <select asp-for="@Model.SelectedCategoryId" asp-items="@Model.CategoryOptions">
+            <option value=""> select an option </option>
+        </select>
+
+        <br /><br />
+
+        <input type="submit" value="Add Here" />
+    </form>
+
+
+
+
+    <style>
+        <style >
+        .LabelTxt {
+            font-size: 20px;
+            margin: 10px;
+            color: green;
+        }
+
+        .InputTxt {
+            font-size: 20px;
+        }
+    </style>
+</body>
+</html>

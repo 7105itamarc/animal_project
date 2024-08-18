@@ -1,0 +1,44 @@
+﻿@model _1907FirstWebAppAtempt.ViewModel.AnimalViewModel
+
+@{
+	ViewBag.Title = "Input"; 
+}
+
+<input hidden asp-for="AnimalId" value="@Model.AnimalId" />
+
+<label class="LabelTxt" asp-for="@Model.Name"></label>
+<input class="InputTxt" asp-for="@Model.Name" />
+<span asp-validation-for="@Model.Name"></span>
+
+<br />
+<br />
+
+<label class="LabelTxt" asp-for="@Model.Age"></label>
+<input class="InputTxt" asp-for="@Model.Age" />
+<span asp-validation-for="@Model.Age"></span>
+
+<br />
+<br />
+
+<label class="LabelTxt" asp-for="@Model.Description"></label>
+<input class="InputTxt" asp-for="@Model.Description" />
+<span asp-validation-for="@Model.Description"></span>
+
+<br />
+<br />
+
+<label class="LabelTxt" asp-for="@Model.photo"></label>
+<input class="InputTxt" asp-for="@Model.photo" id="formFile">
+<span asp-validation-for="@Model.photo"></span>
+
+    <style >
+    .LabelTxt {
+        font-size: 20px;
+        margin: 10px;
+        color: green;
+    }
+
+    .InputTxt {
+        font-size: 20px;
+    }
+</style>

@@ -8,8 +8,6 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 namespace _1907FirstWebAppAtempt.Controllers
 {
-
-    [Authorize]
     public class MainController : Controller
     {
         private IRepository repository;

@@ -1,4 +1,5 @@
-﻿@model _1907FirstWebAppAtempt.Models.MyLoginModel
+﻿@model _1907FirstWebAppAtempt.Models.LoginDetials
+
 @{
     ViewBag.Title = "Login";
 }
@@ -8,35 +9,34 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Login</title>
+    <title>login</title>
 </head>
 <body>
 
-<form asp-action="Login" asp-controller="Account">
-
-    <div class="inputId">
-         <label asp-for="UserName"></label> 
-        <input asp-for="UserName"/>
-        <span asp-validation-for="UserName"></span>
-    </div>
-        <br />
-        <div class="inputId">
-            <label asp-for="Password"></label>
-            <input asp-for="Password" />
-            <span asp-validation-for="Password"></span>
+    <form method="post" asp-action="Login" >
+        <div>
+            <label class="LabelTxt" asp-for="UserName"> UserName </label>
+            <input class="InputTxt" asp-for="UserName" />
         </div>
-    <br />
-    
-    <input type="submit" value="submit form here" />
-</form>
+        <div>
+            <label class="LabelTxt" asp-for="password"> password </label>
+            <input class="InputTxt" asp-for="password" />
+        </div>
 
+        <input type="submit" value="Login"/>
+    </form>
+
+    <style>
+        .LabelTxt {
+            font-size: 20px;
+            margin: 10px;
+            color: green;
+        }
+
+        .InputTxt {
+            font-size: 20px;
+        }
+    </style>
 
 </body>
 </html>
-
-
-@section section1
-{
-   @*  <div>This is section2 content</div> *@
-}
-

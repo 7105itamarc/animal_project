@@ -2,13 +2,7 @@ using _1907FirstWebAppAtempt;
 using _1907FirstWebAppAtempt.Data;
 using _1907FirstWebAppAtempt.Hubs;
 using _1907FirstWebAppAtempt.Repositories;
-<<<<<<< HEAD
 using Microsoft.AspNetCore.Identity;
-=======
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Data.SqlClient;
->>>>>>> 26281e4ca54093c2eef448ab8311b83ba2c3019b
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -21,7 +15,6 @@ builder.Services.AddSignalR();
 string connnectionString = builder.Configuration["ConnectionStrings:DefaultConnection"]!;
 builder.Services.AddDbContext<ZooContext>(options => options.UseLazyLoadingProxies().UseSqlServer(connnectionString));
 
-<<<<<<< HEAD
 string AuthenticationConStr = builder.Configuration["ConnectionStrings:AuthenticationConStr"]!;
 
 builder.Services.AddDbContext<AuthenticationContext>(options => options.UseSqlite(AuthenticationConStr));
@@ -30,12 +23,6 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>().
     AddEntityFrameworkStores<AuthenticationContext>();
 
 builder.Services.AddControllersWithViews();
-=======
-builder.Services.AddDefaultIdentity<IdentityUser>()
-    .AddEntityFrameworkStores<ZooContext>();
-
-//builder.Services.AddControllersWithViews();
->>>>>>> 26281e4ca54093c2eef448ab8311b83ba2c3019b
 var app = builder.Build();
 
 if(app.Environment.IsStaging() || app.Environment.IsProduction())
@@ -43,10 +30,6 @@ if(app.Environment.IsStaging() || app.Environment.IsProduction())
     app.UseExceptionHandler("/Error/Index");
 }
 
-<<<<<<< HEAD
-=======
-app.UseAuthentication();
->>>>>>> 26281e4ca54093c2eef448ab8311b83ba2c3019b
 app.UseStaticFiles();
 
 using(var scope = app.Services.CreateScope())

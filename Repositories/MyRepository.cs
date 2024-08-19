@@ -19,34 +19,6 @@ namespace _1907FirstWebAppAtempt.Repositories
             this.context = context;   
         }
 
-<<<<<<< HEAD
-=======
-        public void InsertUser(MyUser user)
-        {
-            context.AllUsers.Add(user);
-            context.SaveChanges();
-        }
-        public void DeleteUser(int id)
-        {
-            var user = context.AllUsers!.Single(u => u.UserId == id);
-            context.AllUsers.Remove(user);
-            context.SaveChanges();
-        }
-
-        public IEnumerable<MyUser> GetUsers()
-        {
-            return context.AllUsers;
-        }
-
-
-        public void UpdateUserName(int id, string UserName)
-        {
-            var user = context.AllUsers!.Single(u => u.UserId == id);
-            user.UserName = UserName;
-            context.SaveChanges();
-        }
-
->>>>>>> 26281e4ca54093c2eef448ab8311b83ba2c3019b
         public Animal GetAnimalById(int id)
         {
             // explicite Loading 
